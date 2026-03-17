@@ -43,13 +43,17 @@
       border-radius: 5px;
     }
 
-    .button:hover {
-      background-color: #a00000;
+    iframe {
+      width: 90%;
+      max-width: 600px;
+      height: 300px;
+      border: none;
+      margin-top: 15px;
+      border-radius: 8px;
     }
 
     img {
       max-width: 90%;
-      height: auto;
       margin: 10px;
       border-radius: 8px;
     }
@@ -58,14 +62,9 @@
 
 <body>
 
-<!-- HERO SECTION -->
-<header style="
-  background: url('boat1.jpg') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-">
-  <div style="background: rgba(0,0,0,0.5); padding:20px;">
+<!-- HERO -->
+<header style="background:url('boat1.jpg') center/cover no-repeat; color:white; text-align:center; padding:80px 20px;">
+  <div style="background:rgba(0,0,0,0.5); padding:20px;">
     <img src="logo.png" style="max-width:250px;">
     <h1>Baldrick’s Towpath Tipple</h1>
     <p>A Floating Canal Bar on the Grand Union Canal</p>
@@ -77,6 +76,9 @@
   <h2>📍 Where is Baldrick Today?</h2>
   <p><strong>Currently moored:</strong><br>Cassiobury Park Towpath</p>
   <p><strong>Next stop:</strong><br>Rickmansworth – Saturday afternoon</p>
+
+  <!-- MAP -->
+  <iframe src="https://www.google.com/maps?q=Cassiobury+Park&output=embed"></iframe>
 </section>
 
 <!-- DRINKS -->
@@ -114,12 +116,18 @@
   <img src="bar.jpg">
 </section>
 
+<!-- INSTAGRAM -->
+<section class="alt">
+  <h2>📸 Latest from Instagram</h2>
+  <iframe src="https://www.instagram.com/baldricks_towpath_tipple/embed"></iframe>
+</section>
+
 <!-- CONTACT -->
 <footer>
   <h2>Follow Us</h2>
   <p>Instagram: @baldricks_towpath_tipple</p>
   <p>Email: hello@baldrickstowpathtipple.co.uk</p>
-<p>Private Hire: bar@baldrickstowpathtipple.co.uk</p>
+  <p>Private Hire: bar@baldrickstowpathtipple.co.uk</p>
   <p>© Baldrick’s Towpath Tipple</p>
 </footer>
 
