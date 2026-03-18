@@ -14,6 +14,25 @@
       text-align: center;
     }
 
+    nav {
+      background: #8b0000;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     section {
       padding: 30px 20px;
     }
@@ -75,10 +94,22 @@
   var status = "OPEN"; // CHANGE TO "CLOSED"
 </script>
 
+<!-- 🔝 MENU -->
+<nav>
+  <a href="#top">Home</a>
+  <a href="#location">Where Are We</a>
+  <a href="#drinks">Bar</a>
+  <a href="#hire">Private Hire</a>
+  <a href="#instagram">Instagram</a>
+  <a href="https://gofund.me/8f1d9fd5" target="_blank" style="color:yellow;">
+    Support Us
+  </a>
+</nav>
+
 <div id="topBanner"></div>
 
 <!-- HERO -->
-<header style="background:url('boat1.jpg') center/cover no-repeat; color:white; padding:80px 20px;">
+<header id="top" style="background:url('boat1.jpg') center/cover no-repeat; color:white; padding:80px 20px;">
   <div style="background:rgba(0,0,0,0.5); padding:20px;">
     <img src="logo.png" style="max-width:250px;">
     <h1>Baldrick’s Towpath Tipple</h1>
@@ -87,18 +118,25 @@
 </header>
 
 <!-- OPEN SECTION -->
-<section id="openSection">
+<section id="location">
   <h2>📍 Where is Baldrick Today?</h2>
   <p><strong>Currently moored:</strong><br>Cassiobury Park Towpath</p>
   <p><strong>Next stop:</strong><br>Rickmansworth – Saturday afternoon</p>
 
   <iframe src="https://www.google.com/maps?q=Cassiobury+Park&output=embed"></iframe>
+</section>
 
+<section id="drinks" class="alt">
   <h2>🍺 On the Bar</h2>
   <p>London Bitter</p>
   <p>Towpath Pale Ale</p>
   <p>Guest Canal Stout</p>
   <p>Traditional Cider</p>
+
+  <p><strong>Next stops:</strong></p>
+  <p>Apsley – Friday</p>
+  <p>Cassiobury Park – Saturday</p>
+  <p>Rickmansworth – Sunday</p>
 </section>
 
 <!-- CLOSED SECTION -->
@@ -109,15 +147,16 @@
 </section>
 
 <!-- PRIVATE HIRE -->
-<section class="alt">
-  <h2>🎉 Private Hire</h2>
-  <p>Canal-side garden parties, birthdays & events.</p>
+<section id="hire">
+  <h2>🎉 Canal-Side Garden Parties</h2>
+  <p>Hire Baldrick’s Towpath Tipple for your private event.</p>
+  <p>If your garden backs onto the canal, we may be able to moor outside and serve drinks.</p>
   <p>Email: bar@baldrickstowpathtipple.co.uk</p>
   <a href="mailto:bar@baldrickstowpathtipple.co.uk" class="button">Enquire</a>
 </section>
 
 <!-- INSTAGRAM -->
-<section>
+<section id="instagram" class="alt">
   <h2>📸 Follow the Towpath</h2>
   <a href="https://www.instagram.com/baldricks_towpath_tipple" target="_blank">
     <img src="boat2.jpg">
@@ -133,17 +172,20 @@
 </footer>
 
 <script>
-  var openSection = document.getElementById("openSection");
+  var openSection = document.getElementById("location");
+  var drinksSection = document.getElementById("drinks");
   var closedSection = document.getElementById("closedSection");
   var banner = document.getElementById("topBanner");
 
   if (status === "OPEN") {
     openSection.style.display = "block";
+    drinksSection.style.display = "block";
     closedSection.style.display = "none";
     banner.innerHTML = "🍺 OPEN NOW – FIND US ON THE TOWPATH";
     banner.className = "banner";
   } else {
     openSection.style.display = "none";
+    drinksSection.style.display = "none";
     closedSection.style.display = "block";
     banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
     banner.className = "closedBanner";
