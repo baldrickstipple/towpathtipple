@@ -11,15 +11,11 @@
       font-family: Georgia, serif;
       background-color: #f5f5dc;
       color: #333;
-    }
-
-    h1, h2 {
-      margin: 10px 0;
+      text-align: center;
     }
 
     section {
       padding: 30px 20px;
-      text-align: center;
     }
 
     .alt {
@@ -33,10 +29,16 @@
       font-weight: bold;
     }
 
+    .closedBanner {
+      background: #555;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+
     footer {
       background-color: #8b0000;
       color: white;
-      text-align: center;
       padding: 30px 20px;
     }
 
@@ -61,7 +63,6 @@
 
     img {
       max-width: 90%;
-      margin: 10px;
       border-radius: 8px;
     }
   </style>
@@ -69,15 +70,15 @@
 
 <body>
 
-<!-- 🔔 OPEN BANNER (EDIT THIS WHEN LIVE) -->
-  <!--
-<div class="banner">
-  🍺 OPEN THIS WEEKEND – Cassiobury Park & Rickmansworth
-</div>
-  -->
+<!-- 🔑 CHANGE THIS WORD ONLY -->
+<script>
+  var status = "OPEN"; // CHANGE TO "CLOSED"
+</script>
+
+<div id="topBanner"></div>
 
 <!-- HERO -->
-<header style="background:url('boat1.jpg') center/cover no-repeat; color:white; text-align:center; padding:80px 20px;">
+<header style="background:url('boat1.jpg') center/cover no-repeat; color:white; padding:80px 20px;">
   <div style="background:rgba(0,0,0,0.5); padding:20px;">
     <img src="logo.png" style="max-width:250px;">
     <h1>Baldrick’s Towpath Tipple</h1>
@@ -85,83 +86,69 @@
   </div>
 </header>
 
-<!-- 📍 OPEN MODE (USE THIS WHEN TRADING) -->
-  <!--
-<section style="background:#fff3cd;">
+<!-- OPEN SECTION -->
+<section id="openSection">
   <h2>📍 Where is Baldrick Today?</h2>
   <p><strong>Currently moored:</strong><br>Cassiobury Park Towpath</p>
   <p><strong>Next stop:</strong><br>Rickmansworth – Saturday afternoon</p>
 
   <iframe src="https://www.google.com/maps?q=Cassiobury+Park&output=embed"></iframe>
-</section>
--->
-  
-<!-- 🚧 CLOSED MODE (UNCOMMENT WHEN CLOSED) -->
-  
-  <section style="background:#ddd;">
-  <h2>🚧 Currently Closed 🚧</h2>
-  <p>Baldrick’s Towpath Tipple opens at select times throughout the year.</p>
-  <p>Follow us on Instagram for the next opening dates.</p>
+
+  <h2>🍺 On the Bar</h2>
+  <p>London Bitter</p>
+  <p>Towpath Pale Ale</p>
+  <p>Guest Canal Stout</p>
+  <p>Traditional Cider</p>
 </section>
 
-<!-- 🍺 DRINKS -->
+<!-- CLOSED SECTION -->
+<section id="closedSection">
+  <h2>🚧 Currently Closed</h2>
+  <p>We open at select times throughout the year.</p>
+  <p>Follow us on Instagram for updates.</p>
+</section>
+
+<!-- PRIVATE HIRE -->
 <section class="alt">
-  <h2>🍺🍸 On the Bar 🍸🍺</h2>
-  <p>Local Craft</p>
-  <p>Real Ale</p>
-  <p>Cocktails and Wine</p>
-  <p>Traditional Ciders</p>
+  <h2>🎉 Private Hire</h2>
+  <p>Canal-side garden parties, birthdays & events.</p>
+  <p>Email: bar@baldrickstowpathtipple.co.uk</p>
+  <a href="mailto:bar@baldrickstowpathtipple.co.uk" class="button">Enquire</a>
 </section>
 
-<!-- 🎉 PRIVATE HIRE -->
+<!-- INSTAGRAM -->
 <section>
-  <h2>🎉 Canal-Side Garden Parties 🎉</h2>
-  <p>Hire Baldrick’s Towpath Tipple for your private event.</p>
-  <p>If your garden backs onto the canal, we may be able to moor outside and serve drinks.</p>
-  <p>Perfect for birthdays, summer parties, and special occasions.</p>
-  <p><strong>Email:</strong> bar@baldrickstowpathtipple.co.uk</p>
-  <a href="mailto:bar@baldrickstowpathtipple.co.uk" class="button">Enquire Now</a>
-</section>
-
-<!-- ⚓ BOATS -->
-<section class="alt">
-  <h2>⚓ The Boats ⚓</h2>
-  <p><strong>Baldrick</strong> – the motor boat and currently the bar</p>
-  <p><strong>TAM</strong> – the historic butty, soon to be home of the bar</p>
-  <p>Together they form Baldrick’s Towpath Tipple.</p>
-</section>
-
-<!-- 📸 PHOTOS -->
-<section>
-  <h2>📸 Life on the Towpath</h2>
-  <img src="boat1.jpg">
-  <img src="boat2.jpg">
-  <img src="bar.jpg">
-</section>
-
-<!-- 📸 INSTAGRAM -->
-<section class="alt">
-  <h2>📸 Follow our journey</h2>
-
+  <h2>📸 Follow the Towpath</h2>
   <a href="https://www.instagram.com/baldricks_towpath_tipple" target="_blank">
-    <img src="logo.png" alt="Instagram preview">
+    <img src="boat2.jpg">
   </a>
-
-  <p>Follow us on Instagram for live updates, locations, and canal life.</p>
-
+  <br>
   <a href="https://www.instagram.com/baldricks_towpath_tipple" target="_blank" class="button">
     View Instagram
   </a>
 </section>
 
-<!-- 📞 CONTACT -->
 <footer>
-  <h2>Follow Us</h2>
-  <p>Instagram: @baldricks_towpath_tipple</p>
   <p>Email: hello@baldrickstowpathtipple.co.uk</p>
-  <p>Private Hire: bar@baldrickstowpathtipple.co.uk</p>
-  <p>© Baldrick’s Towpath Tipple</p>
 </footer>
+
+<script>
+  var openSection = document.getElementById("openSection");
+  var closedSection = document.getElementById("closedSection");
+  var banner = document.getElementById("topBanner");
+
+  if (status === "OPEN") {
+    openSection.style.display = "block";
+    closedSection.style.display = "none";
+    banner.innerHTML = "🍺 OPEN NOW – FIND US ON THE TOWPATH";
+    banner.className = "banner";
+  } else {
+    openSection.style.display = "none";
+    closedSection.style.display = "block";
+    banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
+    banner.className = "closedBanner";
+  }
+</script>
 
 </body>
 </html>
