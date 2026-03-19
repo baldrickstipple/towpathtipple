@@ -166,10 +166,14 @@ function openImg(src) {
 </header>
 
 <!-- 🚤 WHERE’S BALDRICK -->
+
 <section style="background:#fff8dc;">
   <h2>🚤 Where’s Baldrick?</h2>
-  <p><strong>Today:</strong> Cassiobury Park Towpath</p>
-  <p><strong>Open until:</strong> 6pm</p>
+  
+  <p><strong>Today:</strong> <span id="live-location">Loading...</span></p>
+  <p><strong>Status:</strong> <span id="live-status">Loading...</span></p>
+  <p><strong>Next Stop:</strong> <span id="live-next">Loading...</span></p>
+
 </section>
 
 <!-- LOCATION -->
@@ -261,6 +265,21 @@ if (status === "OPEN") {
 }
 
 </script>
+
+fetch("location.txt")
+  .then(response => response.text())
+  .then(data => {
+    const lines = data.split("\n");
+
+    document.getElementById("live-location").innerText = lines[0] || "";
+    document.getElementById("live-status").innerText = lines[1] || "";
+    document.getElementById("live-next").innerText = lines[2] || "";
+  })
+  .catch(() => {
+    document.getElementById("live-location").innerText = "Check socials for location";
+    document.getElementById("live-status").innerText = "";
+    document.getElementById("live-next").innerText = "";
+  });
 
 </body>
 </html>
