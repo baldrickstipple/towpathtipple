@@ -1,93 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Baldrick's Towpath Tipple</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Baldrick's Towpath Tipple</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background-color: #f5f5dc;
-      color: #333;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #f5f5dc;
+  color: #333;
+  text-align: center;
+}
 
-    nav {
-      background: #8b0000;
-      padding: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+nav {
+  background: #8b0000;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    section {
-      padding: 30px 20px;
-    }
+section {
+  padding: 30px 20px;
+}
 
-    .alt {
-      background-color: #e6e0c5;
-    }
+.alt {
+  background-color: #e6e0c5;
+}
 
-    .banner {
-      background: #006400;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-    }
+.banner {
+  background: #006400;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
 
-    .closedBanner {
-      background: #555;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-    }
+.closedBanner {
+  background: #555;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
 
-    footer {
-      background-color: #8b0000;
-      color: white;
-      padding: 30px 20px;
-    }
+footer {
+  background-color: #8b0000;
+  color: white;
+  padding: 30px 20px;
+}
 
-    .button {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 10px;
-      background-color: #8b0000;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
+/* 🎨 Canal-style buttons */
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  background-color: #1f3a3a;
+  color: #f5f1e6;
+  text-decoration: none;
+  border: 2px solid #d4c7a1;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 #000;
+}
 
-    iframe {
-      width: 90%;
-      max-width: 600px;
-      height: 300px;
-      border: none;
-      margin-top: 15px;
-      border-radius: 8px;
-    }
+.button:hover {
+  background-color: #2f5a5a;
+}
 
-    img {
-      max-width: 90%;
-      border-radius: 8px;
-      margin: 10px;
-    }
-  </style>
+iframe {
+  width: 90%;
+  max-width: 600px;
+  height: 300px;
+  border: none;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+img {
+  max-width: 90%;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* 🍺 Today box */
+#todayBox {
+  margin: 15px auto;
+  padding: 15px;
+  max-width: 400px;
+  background: #fff8dc;
+  border: 2px solid #8b0000;
+  border-radius: 8px;
+}
+</style>
 </head>
 
 <body>
 
 <script>
-  var status = "OPEN"; // CHANGE TO "CLOSED"
+/* 🔄 OPEN/CLOSED logic */
+var manualStatus = "AUTO"; // "OPEN", "CLOSED", or "AUTO"
+
+const now = new Date();
+const hour = now.getHours();
+
+let status;
+
+if (manualStatus === "OPEN") {
+  status = "OPEN";
+} else if (manualStatus === "CLOSED") {
+  status = "CLOSED";
+} else {
+  status = (hour >= 12 && hour <= 18) ? "OPEN" : "CLOSED";
+}
+
+/* 🍺 Opening hours */
+const hours = {
+  0: "Closed",
+  1: "Closed",
+  2: "Closed",
+  3: "Closed",
+  4: "Closed",
+  5: "12:00–18:00",
+  6: "12:00–18:00"
+};
+
+const today = new Date().getDay();
+
+/* 📸 Image popup */
+function openImg(src) {
+  const w = window.open("");
+  w.document.write("<img src='" + src + "' style='width:100%'>");
+}
 </script>
 
 <!-- MENU -->
@@ -114,34 +165,49 @@
   </div>
 </header>
 
-<!-- OPEN -->
+<!-- 🚤 WHERE’S BALDRICK -->
+<section style="background:#fff8dc;">
+  <h2>🚤 Where’s Baldrick?</h2>
+  <p><strong>Today:</strong> Cassiobury Park Towpath</p>
+  <p><strong>Open until:</strong> 6pm</p>
+</section>
+
+<!-- LOCATION -->
 <section id="location">
   <h2>📍 Where is Baldrick Today?</h2>
+
+  <div id="todayBox">
+    <strong>🍺 Today’s Opening Hours:</strong>
+    <div id="today-hours">Loading...</div>
+  </div>
+
   <p><strong>Currently moored:</strong><br>Cassiobury Park Towpath</p>
-  <p><strong>Next stop:</strong><br>Rickmansworth – Saturday afternoon</p>
+
+  <div>
+    <strong>📍 Upcoming Stops:</strong>
+    <p>Fri – Apsley</p>
+    <p>Sat – Cassiobury Park</p>
+    <p>Sun – Rickmansworth</p>
+  </div>
 
   <iframe src="https://www.google.com/maps?q=Cassiobury+Park&output=embed"></iframe>
 </section>
 
+<!-- BAR -->
 <section id="drinks" class="alt">
   <h2>🍺 On the Bar</h2>
   <p>London Bitter</p>
   <p>Towpath Pale Ale</p>
   <p>Guest Canal Stout</p>
   <p>Traditional Cider</p>
-
-  <p><strong>Next stops:</strong></p>
-  <p>Apsley – Friday</p>
-  <p>Cassiobury Park – Saturday</p>
-  <p>Rickmansworth – Sunday</p>
 </section>
 
 <!-- PHOTOS -->
 <section id="photos">
   <h2>📸 Life on the Towpath</h2>
-  <img src="boat1.jpg">
-  <img src="boat2.jpg">
-  <img src="bar.jpg">
+  <img src="boat1.jpg" onclick="openImg(this.src)">
+  <img src="boat2.jpg" onclick="openImg(this.src)">
+  <img src="bar.jpg" onclick="openImg(this.src)">
 </section>
 
 <!-- CLOSED -->
@@ -162,15 +228,12 @@
 <!-- SOCIAL -->
 <section id="social">
   <h2>📱 Follow Our Socials</h2>
-
   <a href="https://www.instagram.com/baldricks_towpath_tipple" target="_blank" class="button">
     Instagram
   </a>
-
   <a href="https://www.facebook.com/share/1Dnq4pw1ZH/" target="_blank" class="button">
     Facebook
   </a>
-
   <p>Follow us for live updates, locations, and canal life.</p>
 </section>
 
@@ -179,27 +242,32 @@
 </footer>
 
 <script>
-  var openSection = document.getElementById("location");
-  var drinksSection = document.getElementById("drinks");
-  var photosSection = document.getElementById("photos");
-  var closedSection = document.getElementById("closedSection");
-  var banner = document.getElementById("topBanner");
+/* Apply opening hours */
+document.getElementById("today-hours").innerText = hours[today];
 
-  if (status === "OPEN") {
-    openSection.style.display = "block";
-    drinksSection.style.display = "block";
-    photosSection.style.display = "block";
-    closedSection.style.display = "none";
-    banner.innerHTML = "🍺 OPEN NOW – FIND US ON THE TOWPATH";
-    banner.className = "banner";
-  } else {
-    openSection.style.display = "none";
-    drinksSection.style.display = "none";
-    photosSection.style.display = "none";
-    closedSection.style.display = "block";
-    banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
-    banner.className = "closedBanner";
-  }
+/* Sections */
+var openSection = document.getElementById("location");
+var drinksSection = document.getElementById("drinks");
+var photosSection = document.getElementById("photos");
+var closedSection = document.getElementById("closedSection");
+var banner = document.getElementById("topBanner");
+
+/* OPEN/CLOSED display */
+if (status === "OPEN") {
+  openSection.style.display = "block";
+  drinksSection.style.display = "block";
+  photosSection.style.display = "block";
+  closedSection.style.display = "none";
+  banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
+  banner.className = "banner";
+} else {
+  openSection.style.display = "none";
+  drinksSection.style.display = "none";
+  photosSection.style.display = "none";
+  closedSection.style.display = "block";
+  banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
+  banner.className = "closedBanner";
+}
 </script>
 
 </body>
