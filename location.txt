@@ -1,3 +1,4 @@
-Cassiobury Park Towpath
+Cassiobury Park Towpath ///flips.canal.boat
+OPEN
+Next: Rickmansworth ///boats.water.front
 Open until 6pm
-Next: Rickmansworth Saturday
