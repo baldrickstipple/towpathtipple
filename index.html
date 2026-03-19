@@ -246,28 +246,20 @@ function openImg(src) {
 document.getElementById("today-hours").innerText = hours[today];
 
 /* Sections */
-var openSection = document.getElementById("location");
-var drinksSection = document.getElementById("drinks");
-var photosSection = document.getElementById("photos");
 var closedSection = document.getElementById("closedSection");
 var banner = document.getElementById("topBanner");
 
 /* OPEN/CLOSED display */
 if (status === "OPEN") {
-  openSection.style.display = "block";
-  drinksSection.style.display = "block";
-  photosSection.style.display = "block";
   closedSection.style.display = "none";
   banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
   banner.className = "banner";
 } else {
-  openSection.style.display = "none";
-  drinksSection.style.display = "none";
-  photosSection.style.display = "none";
   closedSection.style.display = "block";
   banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
   banner.className = "closedBanner";
 }
+
 </script>
 
 </body>
