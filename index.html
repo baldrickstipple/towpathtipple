@@ -272,19 +272,39 @@ fetch("location.txt")
     const lines = data.split("\n");
 
     const current = lines[0] || "";
-    const status = lines[1] || "";
+    const status = (lines[1] || "CLOSED").toUpperCase();
     const next = lines[2] || "";
+    const hoursText = lines[3] || "";
 
+    // Update location info
     document.getElementById("live-location").innerText = current.replace(/\/{3}/g, " ");
     document.getElementById("live-status").innerText = status;
     document.getElementById("live-next").innerText = next.replace(/\/{3}/g, " ");
 
-    // Extract what3words links
+    // Update what3words links
     const currentW3W = current.split("///")[1] || "";
     const nextW3W = next.split("///")[1] || "";
 
     if(currentW3W) document.getElementById("w3w-current").href = `https://what3words.com/${currentW3W}`;
     if(nextW3W) document.getElementById("w3w-next").href = `https://what3words.com/${nextW3W}`;
+
+    // Update Today’s Hours box
+    document.getElementById("today-hours").innerText = hoursText;
+
+    // OPEN / CLOSED banner logic
+    const banner = document.getElementById("topBanner");
+    const closedSection = document.getElementById("closedSection");
+
+    if(status === "OPEN") {
+      closedSection.style.display = "none";
+      banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
+      banner.className = "banner";
+    } else {
+      closedSection.style.display = "block";
+      banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
+      banner.className = "closedBanner";
+    }
+
   })
   .catch(() => {
     document.getElementById("live-location").innerText = "Check socials for location";
