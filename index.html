@@ -57,7 +57,7 @@ footer {
   padding: 30px 20px;
 }
 
-/* 🎨 Canal-style buttons */
+/* Canal-style buttons */
 .button {
   display: inline-block;
   padding: 12px 20px;
@@ -74,15 +74,6 @@ footer {
   background-color: #2f5a5a;
 }
 
-iframe {
-  width: 90%;
-  max-width: 600px;
-  height: 300px;
-  border: none;
-  margin-top: 15px;
-  border-radius: 8px;
-}
-
 img {
   max-width: 90%;
   border-radius: 8px;
@@ -90,7 +81,7 @@ img {
   cursor: pointer;
 }
 
-/* 🍺 Today box */
+/* Today box */
 #todayBox {
   margin: 15px auto;
   padding: 15px;
@@ -103,43 +94,6 @@ img {
 </head>
 
 <body>
-
-<script>
-/* 🔄 OPEN/CLOSED logic */
-var manualStatus = "OPEN"; // "OPEN", "CLOSED", or "AUTO"
-
-const now = new Date();
-const hour = now.getHours();
-
-let status;
-
-if (manualStatus === "OPEN") {
-  status = "OPEN";
-} else if (manualStatus === "CLOSED") {
-  status = "CLOSED";
-} else {
-  status = (hour >= 12 && hour <= 18) ? "OPEN" : "CLOSED";
-}
-
-/* 🍺 Opening hours */
-const hours = {
-  0: "Closed",
-  1: "Closed",
-  2: "Closed",
-  3: "Closed",
-  4: "Closed",
-  5: "12:00–18:00",
-  6: "12:00–18:00"
-};
-
-const today = new Date().getDay();
-
-/* 📸 Image popup */
-function openImg(src) {
-  const w = window.open("");
-  w.document.write("<img src='" + src + "' style='width:100%'>");
-}
-</script>
 
 <!-- MENU -->
 <nav>
@@ -165,8 +119,7 @@ function openImg(src) {
   </div>
 </header>
 
-<!-- 🚤 WHERE’S BALDRICK -->
-
+<!-- LIVE LOCATION -->
 <section style="background:#fff8dc;">
   <h2>🚤 Where’s Baldrick?</h2>
 
@@ -178,25 +131,13 @@ function openImg(src) {
   <p>Use <a href="" target="_blank" id="w3w-next">what3words</a> for the next stop</p>
 </section>
 
-<!-- LOCATION -->
+<!-- TODAY’S HOURS -->
 <section id="location">
-  <h2>📍 Where is Baldrick Today?</h2>
-
+  <h2>📍 Today’s Info</h2>
   <div id="todayBox">
     <strong>🍺 Today’s Opening Hours:</strong>
     <div id="today-hours">Loading...</div>
   </div>
-
-  <p><strong>Currently moored:</strong><br>Cassiobury Park Towpath</p>
-
-  <div>
-    <strong>📍 Upcoming Stops:</strong>
-    <p>Fri – Apsley</p>
-    <p>Sat – Cassiobury Park</p>
-    <p>Sun – Rickmansworth</p>
-  </div>
-
-  <iframe src="https://www.google.com/maps?q=Cassiobury+Park&output=embed"></iframe>
 </section>
 
 <!-- BAR -->
@@ -216,10 +157,10 @@ function openImg(src) {
   <img src="bar.jpg" onclick="openImg(this.src)">
 </section>
 
-<!-- CLOSED -->
+<!-- CLOSED BANNER (only shows if CLOSED) -->
 <section id="closedSection">
   <h2>🚧 Not Open Today</h2>
-<p>But we’ll be back on the towpath soon…</p>
+  <p>But we’ll be back on the towpath soon…</p>
   <p>Follow us on social media for updates.</p>
 </section>
 
@@ -248,24 +189,13 @@ function openImg(src) {
 </footer>
 
 <script>
-/* Apply opening hours */
-document.getElementById("today-hours").innerText = hours[today];
-
-/* Sections */
-var closedSection = document.getElementById("closedSection");
-var banner = document.getElementById("topBanner");
-
-/* OPEN/CLOSED display */
-if (status === "OPEN") {
-  closedSection.style.display = "none";
-  banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
-  banner.className = "banner";
-} else {
-  closedSection.style.display = "block";
-  banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
-  banner.className = "closedBanner";
+/* 📸 Image popup */
+function openImg(src) {
+  const w = window.open("");
+  w.document.write("<img src='" + src + "' style='width:100%'>");
 }
 
+/* 🔄 LIVE LOCATION, STATUS, NEXT STOP, HOURS */
 fetch("location.txt")
   .then(response => response.text())
   .then(data => {
