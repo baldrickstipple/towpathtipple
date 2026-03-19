@@ -173,7 +173,9 @@ function openImg(src) {
   <p><strong>Today:</strong> <span id="live-location">Loading...</span></p>
   <p><strong>Status:</strong> <span id="live-status">Loading...</span></p>
   <p><strong>Next Stop:</strong> <span id="live-next">Loading...</span></p>
-
+  
+  <p>Use <a href="" target="_blank" id="w3w-current">what3words</a> to navigate to the current spot</p>
+  <p>Use <a href="" target="_blank" id="w3w-next">what3words</a> for the next stop</p>
 </section>
 
 <!-- LOCATION -->
@@ -269,9 +271,20 @@ fetch("location.txt")
   .then(data => {
     const lines = data.split("\n");
 
-    document.getElementById("live-location").innerText = lines[0] || "";
-    document.getElementById("live-status").innerText = lines[1] || "";
-    document.getElementById("live-next").innerText = lines[2] || "";
+    const current = lines[0] || "";
+    const status = lines[1] || "";
+    const next = lines[2] || "";
+
+    document.getElementById("live-location").innerText = current.replace(/\/{3}/g, " ");
+    document.getElementById("live-status").innerText = status;
+    document.getElementById("live-next").innerText = next.replace(/\/{3}/g, " ");
+
+    // Extract what3words links
+    const currentW3W = current.split("///")[1] || "";
+    const nextW3W = next.split("///")[1] || "";
+
+    if(currentW3W) document.getElementById("w3w-current").href = `https://what3words.com/${currentW3W}`;
+    if(nextW3W) document.getElementById("w3w-next").href = `https://what3words.com/${nextW3W}`;
   })
   .catch(() => {
     document.getElementById("live-location").innerText = "Check socials for location";
