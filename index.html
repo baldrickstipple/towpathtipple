@@ -143,10 +143,16 @@ img {
 <!-- BAR -->
 <section id="drinks" class="alt">
   <h2>🍺 On the Bar</h2>
-  <p>London Bitter</p>
-  <p>Towpath Pale Ale</p>
-  <p>Guest Canal Stout</p>
-  <p>Traditional Cider</p>
+
+  <div id="current-drinks">
+    <h3>Now Pouring</h3>
+    <p>Loading...</p>
+  </div>
+
+  <div id="coming-drinks" style="margin-top:20px;">
+    <h3>Coming Soon</h3>
+    <p>Loading...</p>
+  </div>
 </section>
 
 <!-- PHOTOS -->
@@ -241,6 +247,45 @@ fetch("location.txt")
     document.getElementById("live-status").innerText = "";
     document.getElementById("live-next").innerText = "";
   });
+/* 🍺 LOAD BAR MENU */
+fetch("menu.txt")
+  .then(response => response.text())
+  .then(data => {
+    const lines = data.split("\n");
+
+    let current = [];
+    let coming = [];
+    let section = "";
+
+    lines.forEach(line => {
+      line = line.trim();
+
+      if (line === "CURRENT") {
+        section = "current";
+      } else if (line === "COMING") {
+        section = "coming";
+      } else if (line !== "") {
+        if (section === "current") current.push(line);
+        if (section === "coming") coming.push(line);
+      }
+    });
+
+    // Render current drinks
+    const currentDiv = document.getElementById("current-drinks");
+    currentDiv.innerHTML = "<h3>Now Pouring</h3>" +
+      current.map(d => `<p>${d}</p>`).join("");
+
+    // Render coming drinks
+    const comingDiv = document.getElementById("coming-drinks");
+    comingDiv.innerHTML = "<h3>Coming Soon</h3>" +
+      coming.map(d => `<p>${d}</p>`).join("");
+  })
+  .catch(() => {
+    document.getElementById("current-drinks").innerHTML =
+      "<p>Menu unavailable – check socials</p>";
+    document.getElementById("coming-drinks").innerHTML = "";
+  });
+
 </script>
 
 </body>
