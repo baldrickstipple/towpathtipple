@@ -223,8 +223,7 @@ fetch("location.txt")
     // 🟢 OPEN STATE
     if (status === "OPEN") {
 
-      document.getElementById("live-location").innerText =
-        current.replace(/\/{3}/g, " ");
+      document.getElementById("live-location")innerText = current + " 📍";
 
       document.getElementById("today-hours").innerText = hoursText;
 
@@ -251,8 +250,7 @@ fetch("location.txt")
 
     // Always show these
     document.getElementById("live-status").innerText = status;
-    document.getElementById("live-next").innerText =
-      next.replace(/\/{3}/g, " ");
+    document.getElementById("live-next").innerText = next + " 📍";
 
     // what3words links
     if (currentW3W)
