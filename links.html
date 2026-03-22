@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Friends of the Towpath | Baldrick's Towpath Tipple</title>
+<title>Friends | Baldrick's Towpath Tipple</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,12 +10,16 @@ body {
   margin: 0;
   font-family: Georgia, serif;
   background-color: #f5f5dc;
+  color: #333;
   text-align: center;
 }
 
 nav {
   background: #8b0000;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
@@ -29,6 +33,20 @@ section {
   padding: 30px 20px;
 }
 
+.banner {
+  background: #006400;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #8b0000;
+  color: white;
+  padding: 30px 20px;
+}
+
+/* Link cards */
 .link-card {
   background: #fff8dc;
   border: 2px solid #8b0000;
@@ -38,32 +56,49 @@ section {
   max-width: 500px;
 }
 
-.link-card a {
+.button {
   display: inline-block;
-  margin-top: 10px;
   padding: 10px 15px;
-  background: #1f3a3a;
+  margin-top: 10px;
+  background-color: #1f3a3a;
   color: #f5f1e6;
   text-decoration: none;
-  border-radius: 5px;
+  border: 2px solid #d4c7a1;
+  border-radius: 6px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV (same as main site) -->
 <nav>
-  <a href="index.html">Home</a>
+  <a href="index.html#top">Home</a>
+  <a href="index.html#location">Where Are We</a>
+  <a href="index.html#drinks">Bar</a>
+  <a href="index.html#photos">Photos</a>
+  <a href="index.html#hire">Private Hire</a>
+  <a href="index.html#social">Social</a>
+  <a href="links.html">Friends</a>
 </nav>
 
+<div class="banner">
+  🤝 Friends of the Towpath
+</div>
+
 <section>
-  <h1>🤝 Friends of the Towpath</h1>
-  <p>People, places, and events we love along the canal.</p>
+  <h2>People & Places We Recommend</h2>
+  <p>Events, traders, and good company along the canal.</p>
 
   <div id="links-container">
     <p>Loading...</p>
   </div>
 </section>
+
+<footer>
+  <p>Baldrick’s Towpath Tipple</p>
+  <p><a href="index.html" style="color:yellow;">Back to Home</a></p>
+</footer>
 
 <script>
 fetch("links.txt")
@@ -84,12 +119,11 @@ fetch("links.txt")
       } else if (line.startsWith("URL:")) {
         url = line.replace("URL:", "").trim();
 
-        // When URL is reached, output a card
         output += `
           <div class="link-card">
             <h3>${name}</h3>
             <p>${desc}</p>
-            <a href="${url}" target="_blank">Visit</a>
+            <a href="${url}" target="_blank" class="button">Visit</a>
           </div>
         `;
       }
