@@ -1,0 +1,11 @@
+NAME: Rickmansworth Canal Festival
+DESC: One of our favourite events on the calendar with boats, beer, and music.
+URL: https://www.rickyfestival.org/
+
+NAME: Towpath Traders Association
+DESC: Supporting independent canal traders across the network.
+URL: https://example.com
+
+NAME: Friendly Coffee Boat
+DESC: Great coffee and good company on the cut.
+URL: https://instagram.com/
