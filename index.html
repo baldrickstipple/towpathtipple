@@ -304,6 +304,7 @@ document.getElementById("live-next").innerText = next + " 📍";
       "Check socials for location";
   });
 
+
 /* 🍺 LOAD BAR MENU */
 fetch("menu.txt")
   .then(response => response.text())
@@ -312,29 +313,33 @@ fetch("menu.txt")
 
     let current = [];
     let coming = [];
+    let price = "";
     let section = "";
 
     lines.forEach(line => {
       line = line.trim();
 
-      if (line === "CURRENT") {
+      if (line === "PRICE") {
+        section = "price";
+      } else if (line === "CURRENT") {
         section = "current";
       } else if (line === "COMING") {
         section = "coming";
       } else if (line !== "") {
+        if (section === "price") price = line;
         if (section === "current") current.push(line);
         if (section === "coming") coming.push(line);
       }
     });
 
-    // Render current drinks
-    const currentDiv = document.getElementById("current-drinks");
-    currentDiv.innerHTML = "<h3>Now Pouring</h3>" +
+    // Render
+    document.getElementById("current-drinks").innerHTML =
+      `<h3>${price}</h3>` +
+      "<h3>Now Pouring</h3>" +
       current.map(d => `<p>${d}</p>`).join("");
 
-    // Render coming drinks
-    const comingDiv = document.getElementById("coming-drinks");
-    comingDiv.innerHTML = "<h3>Coming Soon</h3>" +
+    document.getElementById("coming-drinks").innerHTML =
+      "<h3>Coming Soon</h3>" +
       coming.map(d => `<p>${d}</p>`).join("");
   })
   .catch(() => {
