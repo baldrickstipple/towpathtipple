@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Menu | Baldrick's Towpath Tipple</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #f5f5dc;
+  color: #333;
+  text-align: center;
+}
+
+nav {
+  background: #8b0000;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+nav a {
+  color: white;
+  margin: 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #1f3a3a;
+}
+
+nav a:hover {
+  background-color: #2f5a5a;
+}
+
+header {
+  padding: 40px 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  border-bottom: 2px solid #8b0000;
+  padding-bottom: 8px;
+  margin-top: 40px;
+  font-size: 1.4rem;
+}
+
+.section {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.details {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.price {
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.featured {
+  background: #fff5f0;
+  border-left: 4px solid #8b0000;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #8b0000;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html#top">Home</a>
+  <a href="#beer">Beers</a>
+  <a href="#wine">Wine</a>
+  <a href="#cocktails">Cocktails</a>
+  <a href="#snacks">Snacks</a>
+  <a href="links.html">Friends</a>
+  <a href="https://gofund.me/8f1d9fd5" target="_blank">Support Us</a>
+</nav>
+
+<header>
+  <h1>Baldrick’s Towpath Tipple</h1>
+  <p>Fresh Drinks & Snacks Along the Canal</p>
+</header>
+
+<div class="section" id="beer">
+  <h2>🍺 Beers & Ciders</h2>
+  <div id="beer-menu">
+    <p>Loading...</p>
+  </div>
+</div>
+
+<div class="section" id="wine">
+  <h2>🍷 Wine</h2>
+  <div id="wine-menu">
+    <p>Loading...</p>
+  </div>
+</div>
+
+<div class="section" id="cocktails">
+  <h2>🍹 Cocktails</h2>
+  <div id="cocktail-menu">
+    <p>Loading...</p>
+  </div>
+</div>
+
+<div class="section" id="snacks">
+  <h2>🥤 Snacks & Soft Drinks</h2>
+  <div id="snacks-menu">
+    <p>Loading...</p>
+  </div>
+</div>
+
+<footer>
+  <p>Baldrick’s Towpath Tipple</p>
+  <p><a href="index.html" style="color:yellow;">Back to Home</a></p>
+</footer>
+
+<script>
+// Utility function to load menu from a txt file
+function loadMenu(file, containerId) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      const lines = data.split("\n");
+      let output = "";
+      lines.forEach(line => {
+        line = line.trim();
+        if (line !== "") {
+          const parts = line.split("|").map(p => p.trim());
+          const name = parts[0] || "";
+          const desc = parts[1] || "";
+          const price = parts[2] || "";
+          if (parts[3] && parts[3].toLowerCase() === "featured") {
+            output += `<div class="featured">
+                        <div class="item">
+                          <div class="details">
+                            <span class="name">${name}</span><br>
+                            <span class="desc">${desc}</span>
+                          </div>
+                          <div class="price">${price}</div>
+                        </div>
+                      </div>`;
+          } else {
+            output += `<div class="item">
+                        <div class="details">
+                          <span class="name">${name}</span><br>
+                          <span class="desc">${desc}</span>
+                        </div>
+                        <div class="price">${price}</div>
+                      </div>`;
+          }
+        }
+      });
+      document.getElementById(containerId).innerHTML = output;
+    })
+    .catch(() => {
+      document.getElementById(containerId).innerHTML = "<p>Menu unavailable</p>";
+    });
+}
+
+// Load each menu
+loadMenu("beer.txt", "beer-menu");
+loadMenu("wine.txt", "wine-menu");
+loadMenu("cocktails.txt", "cocktail-menu");
+loadMenu("snacks.txt", "snacks-menu");
+</script>
+
+</body>
+</html>
