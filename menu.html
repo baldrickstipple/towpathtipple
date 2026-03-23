@@ -102,6 +102,24 @@ footer {
   padding: 30px 20px;
   text-align: center;
 }
+
+.menuBanner {
+  background: #1f3a3a;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.menuBanner a {
+  color: #f5f1e6;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.menuBanner a:hover {
+  text-decoration: underline;
+}
+
 </style>
 </head>
 
@@ -109,13 +127,26 @@ footer {
 
 <nav>
   <a href="index.html#top">Home</a>
-  <a href="#beer">Beers</a>
-  <a href="#wine">Wine</a>
-  <a href="#cocktails">Cocktails</a>
-  <a href="#snacks">Snacks</a>
+  <a href="index.html#location">Where Are We</a>
+  <a href="index.html#drinks">Bar</a>
+  <a href="index.html#photos">Photos</a>
+  <a href="index.html#hire">Private Hire</a>
+  <a href="index.html#social">Social</a>
+  <a href="menu.html">Menu</a>
   <a href="links.html">Friends</a>
-  <a href="https://gofund.me/8f1d9fd5" target="_blank">Support Us</a>
+  <a href="https://gofund.me/8f1d9fd5" target="_blank" style="color:yellow;">
+    Support Us
+  </a>
 </nav>
+
+<div id="topBanner"></div>
+
+<div class="menuBanner">
+  🍺 <a href="#beer">Beer</a> |
+  🍷 <a href="#wine">Wine</a> |
+  🍹 <a href="#cocktails">Cocktails</a> |
+  🥤 <a href="#snacks">Snacks</a>
+</div>
 
 <header>
   <h1>Baldrick’s Towpath Tipple</h1>
@@ -156,53 +187,30 @@ footer {
 </footer>
 
 <script>
-// Utility function to load menu from a txt file
-function loadMenu(file, containerId) {
-  fetch(file)
-    .then(response => response.text())
-    .then(data => {
-      const lines = data.split("\n");
-      let output = "";
-      lines.forEach(line => {
-        line = line.trim();
-        if (line !== "") {
-          const parts = line.split("|").map(p => p.trim());
-          const name = parts[0] || "";
-          const desc = parts[1] || "";
-          const price = parts[2] || "";
-          if (parts[3] && parts[3].toLowerCase() === "featured") {
-            output += `<div class="featured">
-                        <div class="item">
-                          <div class="details">
-                            <span class="name">${name}</span><br>
-                            <span class="desc">${desc}</span>
-                          </div>
-                          <div class="price">${price}</div>
-                        </div>
-                      </div>`;
-          } else {
-            output += `<div class="item">
-                        <div class="details">
-                          <span class="name">${name}</span><br>
-                          <span class="desc">${desc}</span>
-                        </div>
-                        <div class="price">${price}</div>
-                      </div>`;
-          }
-        }
-      });
-      document.getElementById(containerId).innerHTML = output;
-    })
-    .catch(() => {
-      document.getElementById(containerId).innerHTML = "<p>Menu unavailable</p>";
-    });
+var manualStatus = "AUTO"; // or OPEN / CLOSED
+
+const now = new Date();
+const hour = now.getHours();
+
+let status;
+
+if (manualStatus === "OPEN") {
+  status = "OPEN";
+} else if (manualStatus === "CLOSED") {
+  status = "CLOSED";
+} else {
+  status = (hour >= 12 && hour <= 18) ? "OPEN" : "CLOSED";
 }
 
-// Load each menu
-loadMenu("beer.txt", "beer-menu");
-loadMenu("wine.txt", "wine-menu");
-loadMenu("cocktails.txt", "cocktail-menu");
-loadMenu("snacks.txt", "snacks-menu");
+var banner = document.getElementById("topBanner");
+
+if (status === "OPEN") {
+  banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
+  banner.className = "banner";
+} else {
+  banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
+  banner.className = "closedBanner";
+}
 </script>
 
 </body>
