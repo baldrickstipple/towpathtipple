@@ -1,6 +1,6 @@
 NAME: Batchworth Boat Rally 
 DESC: One of our favourite events on the calendar with boats, beer, and music.Now on it's 3rd year this replaces the Rickmansworth Festival. 
-URL: https:batchworthboatrally.org
+URL: https://batchworthboatrally.org
 
 NAME: Roving Canal Traders Association 
 DESC: Supporting independent canal traders across the network. Floating markets throughout the year
