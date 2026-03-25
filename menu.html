@@ -162,29 +162,6 @@ footer {
 </footer>
 
 <script>
-fetch("location.txt")
-  .then(response => response.text())
-  .then(data => {
-    const lines = data.split("\n");
-
-    const status = (lines[1] || "").trim().toUpperCase();
-    const banner = document.getElementById("topBanner");
-
-    if (status === "OPEN") {
-      banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
-      banner.className = "banner";
-    } else {
-      banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
-      banner.className = "closedBanner";
-    }
-  })
-  .catch(() => {
-    document.getElementById("topBanner").innerHTML =
-      "Check socials for updates";
-  });
-</script>
-
-<script>
 // Load simple list menus (no | formatting)
 function loadSimpleMenu(file, containerId) {
   fetch(file)
