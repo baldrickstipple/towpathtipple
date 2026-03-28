@@ -2,355 +2,134 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Baldrick's Towpath Tipple</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baldrick's Towpath Tipple</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* Base Styles */
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background-color: #f5f5dc;
-  color: #333;
-  text-align: center;
-  scroll-behavior: smooth;
-}
+body {margin:0;font-family:'Inter',sans-serif;background:#0f172a;color:#f1f5f9;}
+nav {background:#020617;padding:12px;position:sticky;top:0;z-index:1000;text-align:center;}
+nav a {color:#f1f5f9;margin:10px;text-decoration:none;font-weight:500;}
+nav a:hover {color:#f59e0b;}
 
-nav {
-  background: #8b0000;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+.hero {background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url('boat1.jpg') center/cover;height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
+.hero img {max-width:200px;margin-bottom:10px;}
+.hero h1 {font-family:'Playfair Display';font-size:42px;margin:10px 0;}
+.hero p {max-width:600px;}
 
-nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+.button {display:inline-block;padding:12px 20px;margin:8px;background:#f59e0b;color:black;text-decoration:none;border-radius:8px;font-weight:600;}
 
-nav a:hover { color: #ffd700; }
+section {padding:60px 20px;max-width:1000px;margin:auto;text-align:center;}
+.alt {background:#1e293b;}
 
-section {
-  padding: 60px 20px;
-}
+.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card {background:#1e293b;padding:20px;border-radius:12px;}
 
-.alt {
-  background-color: #e6e0c5;
-}
+.chalkboard {background:#020617;color:#f5f5f5;padding:40px;border-radius:12px;}
 
-/* Banner */
-.banner {
-  background: #006400;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-}
-
-.closedBanner {
-  background: #555;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-}
-
-/* Hero Section */
-header#top {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url('boat1.jpg') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  position: relative;
-}
-
-header#top div {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 30px;
-  border-radius: 12px;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-header#top h1, header#top p {
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Buttons */
-.button {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 8px;
-  background-color: #1f3a3a;
-  color: #f5f1e6;
-  text-decoration: none;
-  border: 2px solid #d4c7a1;
-  border-radius: 8px;
-  box-shadow: 2px 2px 4px #000;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.button:hover {
-  background-color: #2f5a5a;
-  box-shadow: 0 0 12px #ffd700;
-  transform: scale(1.05);
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-#photos img:hover {
-  transform: scale(1.05);
-}
-
-/* Today box */
-#todayBox {
-  margin: 15px auto;
-  padding: 15px;
-  max-width: 400px;
-  background: #fff8dc;
-  border: 2px solid #8b0000;
-  border-radius: 8px;
-}
-
-/* Chalkboard section */
-.chalkboard {
-  background: #1c1c1c;
-  color: #f5f5f5;
-  padding: 30px 20px;
-  font-family: "Courier New", monospace;
-}
-
-.chalkboard h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.chalkboard h3 {
-  border-bottom: 1px dashed #aaa;
-  padding-bottom: 5px;
-  margin-top: 20px;
-}
-
-.chalkboard p {
-  margin: 6px 0;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-}
-
-.chalkboard h3:first-of-type {
-  font-size: 22px;
-  color: #ffd700;
-}
-
-/* Section headings */
-section h2 {
-  font-size: 2rem;
-  color: #8b0000;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #d4c7a1;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* Footer */
-footer {
-  background: linear-gradient(135deg, #8b0000, #5a0000);
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-  font-size: 0.95rem;
-}
+footer {background:#020617;padding:30px;text-align:center;}
 </style>
 </head>
-
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="#top">Home</a>
-  <a href="#location">Where Are We</a>
-  <a href="#drinks">Bar</a>
-  <a href="links.html">Friends</a>
-  <a href="#photos">Photos</a>
-  <a href="#hire">Private Hire</a>
-  <a href="menu.html">Menu</a>
-  <a href="#social">Social</a>
-  <a href="https://gofund.me/8f1d9fd5" target="_blank" style="color:yellow;">Support Us</a>
+<a href="#top">Home</a>
+<a href="#location">Where</a>
+<a href="#drinks">Bar</a>
+<a href="links.html">Friends</a>
+<a href="#photos">Photos</a>
+<a href="#hire">Hire</a>
+<a href="menu.html">Menu</a>
+<a href="#social">Social</a>
+<a href="https://gofund.me/8f1d9fd5" target="_blank" style="color:#f59e0b;">Support</a>
 </nav>
 
-<div id="topBanner"></div>
-
-<!-- HERO -->
-<header id="top">
-  <div>
-    <img src="logo.png" style="max-width:250px;">
-    <h1>Baldrick’s Towpath Tipple</h1>
-    <p>A Floating Canal Bar on the Grand Union Canal</p>
-  </div>
-</header>
-
-<!-- LIVE LOCATION -->
-<section style="background:#fff8dc;">
-  <h2>🚤 Where’s Baldrick?</h2>
-  <p><strong>Today:</strong> <span id="live-location">Loading...</span></p>
-  <p><strong>Status:</strong> <span id="live-status">Loading...</span></p>
-  <p><strong>Next Stop:</strong> <span id="live-next">Loading...</span></p>
-
-  <div style="margin-top:15px;">
-    <a href="" target="_blank" id="w3w-current" class="button">📍 Navigate to Current Location</a>
-  </div>
-
-  <div>
-    <a href="" target="_blank" id="w3w-next" class="button">📍 View Next Stop</a>
-  </div>
+<section class="hero" id="top">
+<img src="logo.png">
+<h1>Baldrick's Towpath Tipple</h1>
+<p>A floating canal bar bringing real ale & good company to the towpath.</p>
+<a href="#location" class="button">Find Us</a>
+<a href="#drinks" class="button">What's Pouring</a>
 </section>
 
-<!-- TODAY’S INFO -->
 <section id="location">
-  <h2>📍 Today’s Info</h2>
-  <div id="todayBox">
-    <strong>🍺 Today’s Opening Hours:</strong>
-    <div id="today-hours">Loading...</div>
-  </div>
+<h2>🚤 Where's Baldrick?</h2>
+<p><strong>Today:</strong> <span id="live-location">Loading...</span></p>
+<p><strong>Status:</strong> <span id="live-status">Loading...</span></p>
+<p><strong>Next Stop:</strong> <span id="live-next">Loading...</span></p>
+<a id="w3w-current" class="button" target="_blank">Navigate</a>
+<a id="w3w-next" class="button" target="_blank">Next Stop</a>
 </section>
 
-<!-- BAR -->
 <section id="drinks" class="chalkboard">
-  <h2>🍺 On the Bar</h2>
-
-  <div id="current-drinks">
-    <h3>Now Pouring</h3>
-    <p>Loading...</p>
-  </div>
-
-  <div id="coming-drinks">
-    <h3>Coming Soon</h3>
-    <p>Loading...</p>
-  </div>
+<h2>🍺 On The Bar</h2>
+<div id="current-drinks">Loading...</div>
+<div id="coming-drinks"></div>
 </section>
 
-<!-- PHOTOS -->
 <section id="photos">
-  <h2>📸 Life on the Towpath</h2>
-  <img src="boat1.jpg" onclick="openImg(this.src)">
-  <img src="boat2.jpg" onclick="openImg(this.src)">
-  <img src="bar.jpg" onclick="openImg(this.src)">
+<h2>📸 Towpath Life</h2>
+<img src="boat1.jpg" onclick="openImg(this.src)">
+<img src="boat2.jpg" onclick="openImg(this.src)">
+<img src="bar.jpg" onclick="openImg(this.src)">
 </section>
 
-<!-- CLOSED BANNER -->
-<section id="closedSection">
-  <h2>🚧 Not Open Today</h2>
-  <p>But we’ll be back on the towpath soon…</p>
-  <p>Follow us on social media for updates.</p>
-</section>
-
-<!-- PRIVATE HIRE -->
 <section id="hire" class="alt">
-  <h2>🎉 Canal-Side Garden Parties</h2>
-  <p>Hire Baldrick’s Towpath Tipple for your private event.</p>
-  <p>Email: bar@baldrickstowpathtipple.co.uk</p>
-  <a href="mailto:bar@baldrickstowpathtipple.co.uk" class="button">Enquire</a>
+<h2>🎉 Private Hire</h2>
+<p>Book the boat for canal-side events.</p>
+<a href="mailto:bar@baldrickstowpathtipple.co.uk" class="button">Enquire</a>
 </section>
 
-<!-- SOCIAL -->
 <section id="social">
-  <h2>📱 Follow Our Socials</h2>
-  <a href="https://www.instagram.com/baldricks_towpath_tipple" target="_blank" class="button">Instagram</a>
-  <a href="https://www.facebook.com/share/1Dnq4pw1ZH/" target="_blank" class="button">Facebook</a>
-  <p>Follow us for live updates, locations, and canal life.</p>
+<h2>📱 Follow Us</h2>
+<a href="https://www.instagram.com/baldricks_towpath_tipple" target="_blank" class="button">Instagram</a>
+<a href="https://www.facebook.com/share/1Dnq4pw1ZH/" target="_blank" class="button">Facebook</a>
 </section>
 
 <footer>
-  <p>Email: hello@baldrickstowpathtipple.co.uk</p>
+<p>hello@baldrickstowpathtipple.co.uk</p>
 </footer>
 
 <script>
-// 📸 Image popup
-function openImg(src) {
-  const w = window.open("");
-  w.document.write("<img src='" + src + "' style='width:100%'>");
+function openImg(src){const w=window.open("");w.document.write("<img src='"+src+"' style='width:100%'>");}
+
+fetch("location.txt").then(r=>r.text()).then(d=>{
+const l=d.split("\n");
+const current=l[0]||"";
+const status=(l[1]||"CLOSED").toUpperCase();
+const next=l[2]||"";
+const currentW3W=current.split("///")[1]||"";
+const nextW3W=next.split("///")[1]||"";
+
+document.getElementById("live-location").innerText=current;
+document.getElementById("live-status").innerText=status;
+document.getElementById("live-next").innerText=next;
+
+if(currentW3W)document.getElementById("w3w-current").href=`https://what3words.com/${currentW3W}`;
+if(nextW3W)document.getElementById("w3w-next").href=`https://what3words.com/${nextW3W}`;
+});
+
+fetch("menu.txt").then(r=>r.text()).then(d=>{
+const lines=d.split("\n");
+let current=[],coming=[],section="",price="";
+lines.forEach(line=>{
+line=line.trim();
+if(line==="PRICE")section="price";
+else if(line==="CURRENT")section="current";
+else if(line==="COMING")section="coming";
+else if(line!==""){
+if(section==="price")price=line;
+if(section==="current")current.push(line);
+if(section==="coming")coming.push(line);
 }
+});
 
-// 🔄 LIVE LOCATION, STATUS, NEXT STOP, HOURS
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("./location.txt")
-    .then(response => response.text())
-    .then(data => {
-      const lines = data.split("\n");
-      const current = lines[0] || "";
-      const status = (lines[1] || "CLOSED").toUpperCase();
-      const next = lines[2] || "";
-      const hoursText = lines[3] || "";
-      const nextEvent = lines[4] || "";
-
-      const banner = document.getElementById("topBanner");
-      const closedSection = document.getElementById("closedSection");
-
-      const currentW3W = current.split("///")[1] || "";
-      const nextW3W = next.split("///")[1] || "";
-
-      if (status === "OPEN") {
-        document.getElementById("live-location").innerText = current + " 📍";
-        document.getElementById("live-next").innerText = next + " 📍";
-        document.getElementById("today-hours").innerText = hoursText;
-        closedSection.style.display = "none";
-        banner.innerHTML = "🍺 OPEN TODAY – COME FIND US ON THE CUT";
-        banner.className = "banner";
-      } else {
-        document.getElementById("live-location").innerText = "Cruising the canal 🌊";
-        document.getElementById("today-hours").innerText = "Closed – " + nextEvent;
-        closedSection.style.display = "block";
-        banner.innerHTML = "🚧 CURRENTLY CLOSED – FOLLOW FOR UPDATES";
-        banner.className = "closedBanner";
-      }
-
-      document.getElementById("live-status").innerText = status;
-
-      if (currentW3W) document.getElementById("w3w-current").href = `https://what3words.com/${currentW3W}`;
-      if (nextW3W) document.getElementById("w3w-next").href = `https://what3words.com/${nextW3W}`;
-    })
-    .catch(() => {
-      document.getElementById("live-location").innerText = "Check socials for location";
-    });
-
-  // 🍺 LOAD BAR MENU
-  function loadSimpleMenu(file, containerId) {
-    fetch("./" + file)
-      .then(response => response.text())
-      .then(data => {
-        const lines = data.split("\n");
-        let output = "";
-        lines.forEach(line => {
-          line = line.trim();
-          if(line !== "") output += "<p>" + line + "</p>";
-        });
-        document.getElementById(containerId).innerHTML = output;
-      })
-      .catch(() => {
-        document.getElementById(containerId).innerHTML = "<p>Menu unavailable – check socials</p>";
-      });
-  }
-
-  loadSimpleMenu("menu.txt", "current-drinks");
+document.getElementById("current-drinks").innerHTML=`<h3>${price}</h3>`+current.map(d=>`<p>${d}</p>`).join("");
+document.getElementById("coming-drinks").innerHTML=coming.map(d=>`<p>${d}</p>`).join("");
 });
 </script>
 
 </body>
 </html>
+
