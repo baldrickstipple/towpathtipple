@@ -36,7 +36,23 @@ section {padding:60px 20px;max-width:1000px;margin:auto;text-align:center;}
 .chalkboard {background:#020617;color:#f5f5f5;padding:40px;border-radius:12px;}
 
 footer {background:#020617;padding:30px;text-align:center;}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+#photos img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 </style>
+
 </head>
 <body>
 
@@ -76,10 +92,14 @@ footer {background:#020617;padding:30px;text-align:center;}
 </section>
 
 <section id="photos">
-<h2>📸 Towpath Life</h2>
-<img src="boat1.jpg" onclick="openImg(this.src)">
-<img src="boat2.jpg" onclick="openImg(this.src)">
-<img src="bar.jpg" onclick="openImg(this.src)">
+  <h2>📸 Life on the Towpath</h2>
+
+  <div class="gallery">
+    <img src="boat1.jpg" onclick="openImg(this.src)">
+    <img src="boat2.jpg" onclick="openImg(this.src)">
+    <img src="bar.jpg" onclick="openImg(this.src)">
+  </div>
+
 </section>
 
 <section id="hire" class="alt">
