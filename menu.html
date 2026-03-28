@@ -56,19 +56,38 @@ footer {background:#020617;padding:30px;}
 </footer>
 
 <script>
-function loadSimpleMenu(file,id){
-fetch(file).then(r=>r.text()).then(d=>{
-const lines=d.split("
-");
-let out="";
-lines.forEach(l=>{l=l.trim();if(l!=="")out+=`<p class="item">${l}</p>`});
-document.getElementById(id).innerHTML=out;
-});}
 
-loadSimpleMenu("beer.txt","beer-menu");
-loadSimpleMenu("wine.txt","wine-menu");
-loadSimpleMenu("cocktails.txt","cocktail-menu");
-loadSimpleMenu("snacks.txt","snacks-menu");
+```javascript
+function loadSimpleMenu(file, containerId) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      const lines = data.split("\n");
+
+      let output = "";
+
+      lines.forEach(line => {
+        line = line.trim();
+        if (line !== "") {
+          output += "<p>" + line + "</p>";
+        }
+      });
+
+      document.getElementById(containerId).innerHTML = output;
+    })
+    .catch(() => {
+      document.getElementById(containerId).innerHTML =
+        "<p>Menu unavailable</p>";
+    });
+}
+
+// Load all menus
+loadSimpleMenu("beer.txt", "beer-menu");
+loadSimpleMenu("wine.txt", "wine-menu");
+loadSimpleMenu("cocktails.txt", "cocktail-menu");
+loadSimpleMenu("snacks.txt", "snacks-menu");
+```
+
 </script>
 
 </body>
