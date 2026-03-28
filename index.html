@@ -8,63 +8,165 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {margin:0;font-family:'Inter',sans-serif;background:#0f172a;color:#f1f5f9;}
-nav {background:#020617;padding:12px;position:sticky;top:0;z-index:1000;text-align:center;}
-nav a {color:#f1f5f9;margin:10px;text-decoration:none;font-weight:500;}
-nav a:hover {color:#f59e0b;}
+/* Base */
+body {
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#0f172a;
+  color:#f1f5f9;
+  scroll-behavior: smooth;
+}
 
-.hero {background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url('boat1.jpg') center/cover;height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
+/* NAV */
+nav {
+  background:#020617;
+  padding:12px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  text-align:center;
+}
+
+nav a {
+  color:#f1f5f9;
+  margin:10px;
+  text-decoration:none;
+  font-weight:500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color:#f59e0b;
+}
+
+/* HERO UPGRADE */
+.hero {
+  background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.85)),
+    url('boat1.jpg') center/cover;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
 .hero img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-  margin: 10px auto;
+  max-width:180px;
+  margin-bottom:15px;
 }
-.hero h1 {font-family:'Playfair Display';font-size:42px;margin:10px 0;}
-.hero p {max-width:600px;}
 
-.button {display:inline-block;padding:12px 20px;margin:8px;background:#f59e0b;color:black;text-decoration:none;border-radius:8px;font-weight:600;}
+.hero h1 {
+  font-family:'Playfair Display';
+  font-size:48px;
+  margin:10px 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
 
-section {padding:60px 20px;max-width:1000px;margin:auto;text-align:center;}
-.alt {background:#1e293b;}
+.hero p {
+  max-width:600px;
+  font-size:18px;
+  opacity:0.9;
+}
 
-.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.card {background:#1e293b;padding:20px;border-radius:12px;}
+/* BUTTONS UPGRADE */
+.button {
+  display:inline-block;
+  padding:12px 22px;
+  margin:8px;
+  background:#f59e0b;
+  color:black;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:600;
+  transition: all 0.3s ease;
+}
 
-.chalkboard {background:#020617;color:#f5f5f5;padding:40px;border-radius:12px;}
+.button:hover {
+  background:#ffb703;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(245,158,11,0.6);
+}
 
-footer {background:#020617;padding:30px;text-align:center;}
+/* SECTIONS */
+section {
+  padding:70px 20px;
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+section h2 {
+  font-family:'Playfair Display';
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.alt {
+  background:#1e293b;
+}
+
+/* CARDS (future use if needed) */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+}
+
+/* CHALKBOARD */
+.chalkboard {
+  background:#020617;
+  color:#f5f5f5;
+  padding:40px;
+  border-radius:12px;
+}
+
+/* GALLERY IMPROVEMENT */
+.gallery {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:15px;
+  justify-items:center;
+}
 
 #photos img {
-  width: 100%;
-  max-width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+  width:100%;
+  max-width:280px;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  justify-items: center;
+#photos img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  justify-items: center;
+/* FOOTER */
+footer {
+  background:#020617;
+  padding:30px;
+  text-align:center;
+  font-size:14px;
+  opacity:0.8;
 }
 
-#photos img {
-  width: 100%;
-  max-width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+/* SUBTLE ANIMATION */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
 }
+
 </style>
 </head>
 <body>
