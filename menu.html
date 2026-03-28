@@ -1,197 +1,76 @@
+
+<!-- ===================== menu.html (UPDATED) ===================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Baldrick's Towpath Tipple</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Baldrick's Towpath Tipple</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background-color: #f5f5dc;
-  color: #333;
-  text-align: center;
-}
-
-nav {
-  background: #8b0000;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.section {
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 12px;
-  padding: 5px 0;
-  border-bottom: 1px dashed #ccc;
-}
-
-.details {
-  flex: 1;
-  padding-right: 10px;
-}
-
-.name {
-  font-weight: bold;
-}
-
-.desc {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.price {
-  font-weight: bold;
-  font-family: monospace;
-}
-
-.featured {
-  background: #fff5f0;
-  border-left: 4px solid #8b0000;
-  padding: 10px;
-  margin: 15px 0;
-  border-radius: 5px;
-}
-
-footer {
-  background-color: #8b0000;
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-}
-
-.menuBanner {
-  background: #1f3a3a;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-}
-
-.menuBanner a {
-  color: #f5f1e6;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.menuBanner a:hover {
-  text-decoration: underline;
-}
-
+body {margin:0;font-family:'Inter',sans-serif;background:#0f172a;color:#f1f5f9;text-align:center;}
+nav {background:#020617;padding:12px;position:sticky;top:0;}
+nav a {color:#f1f5f9;margin:10px;text-decoration:none;}
+nav a:hover {color:#f59e0b;}
+.section {max-width:700px;margin:40px auto;padding:20px;}
+.item {margin:10px 0;padding-bottom:10px;border-bottom:1px dashed #555;}
+footer {background:#020617;padding:30px;}
+.menuNav {background:#1e293b;padding:10px;}
+.menuNav a {color:#f59e0b;margin:5px;text-decoration:none;}
 </style>
 </head>
-
 <body>
 
 <nav>
- <a href="index.html#top">Home</a>
-  <a href="index.html#location">Where Are We</a>
-  <a href="index.html#drinks">Bar</a>
-  <a href="links.html">Friends</a>
-  <a href="index.html#photos">Photos</a>
-  <a href="index.gtml#hire">Private Hire</a>
-  <a href="menu.html">Menu</a>
-  <a href="index.html#social">Social</a>
-  <a href="https://gofund.me/8f1d9fd5" target="_blank" style="color:yellow;">
-    Support Us
-  </a>
+<a href="index.html#top">Home</a>
+<a href="index.html#location">Where</a>
+<a href="index.html#drinks">Bar</a>
+<a href="links.html">Friends</a>
+<a href="index.html#photos">Photos</a>
+<a href="index.html#hire">Hire</a>
+<a href="menu.html">Menu</a>
+<a href="index.html#social">Social</a>
+<a href="https://gofund.me/8f1d9fd5" target="_blank" style="color:#f59e0b;">Support</a>
 </nav>
 
-<div id="topBanner"></div>
-
-<div class="menuBanner">
-  🍺 <a href="#beer">Beer</a> |
-  🍷 <a href="#wine">Wine</a> |
-  🍹 <a href="#cocktails">Cocktails</a> |
-  🥤 <a href="#snacks">Snacks</a>
+<div class="menuNav">
+<a href="#beer">Beer</a>
+<a href="#wine">Wine</a>
+<a href="#cocktails">Cocktails</a>
+<a href="#snacks">Snacks</a>
 </div>
 
 <header>
-  <h1>Baldrick’s Towpath Tipple</h1>
-  <p>Fresh Drinks & Snacks Along the Canal</p>
+<h1>🍺 The Towpath Menu</h1>
+<p>Fresh drinks & simple pleasures along the canal</p>
 </header>
 
-<div class="section" id="beer">
-  <h2>🍺 Beers & Ciders</h2>
-  <div id="beer-menu">
-    <p>Loading...</p>
-  </div>
-</div>
-
-<div class="section" id="wine">
-  <h2>🍷 Wine</h2>
-  <div id="wine-menu">
-    <p>Loading...</p>
-  </div>
-</div>
-
-<div class="section" id="cocktails">
-  <h2>🍹 Cocktails</h2>
-  <div id="cocktail-menu">
-    <p>Loading...</p>
-  </div>
-</div>
-
-<div class="section" id="snacks">
-  <h2>🥤 Snacks & Soft Drinks</h2>
-  <div id="snacks-menu">
-    <p>Loading...</p>
-  </div>
-</div>
+<div class="section" id="beer"><h2>Beer & Cider</h2><div id="beer-menu">Loading...</div></div>
+<div class="section" id="wine"><h2>Wine</h2><div id="wine-menu">Loading...</div></div>
+<div class="section" id="cocktails"><h2>Cocktails</h2><div id="cocktail-menu">Loading...</div></div>
+<div class="section" id="snacks"><h2>Snacks & Soft Drinks</h2><div id="snacks-menu">Loading...</div></div>
 
 <footer>
-  <p>Baldrick’s Towpath Tipple</p>
-  <p><a href="index.html" style="color:yellow;">Back to Home</a></p>
+<p>Baldrick's Towpath Tipple</p>
 </footer>
 
 <script>
-// Load simple list menus (no | formatting)
-function loadSimpleMenu(file, containerId) {
-  fetch(file)
-    .then(response => response.text())
-    .then(data => {
-      const lines = data.split("\n");
+function loadSimpleMenu(file,id){
+fetch(file).then(r=>r.text()).then(d=>{
+const lines=d.split("
+");
+let out="";
+lines.forEach(l=>{l=l.trim();if(l!=="")out+=`<p class="item">${l}</p>`});
+document.getElementById(id).innerHTML=out;
+});}
 
-      let output = "";
-
-      lines.forEach(line => {
-        line = line.trim();
-        if (line !== "") {
-          output += "<p>" + line + "</p>";
-        }
-      });
-
-      document.getElementById(containerId).innerHTML = output;
-    })
-    .catch(() => {
-      document.getElementById(containerId).innerHTML =
-        "<p>Menu unavailable</p>";
-    });
-}
-
-// Load all menus
-loadSimpleMenu("beer.txt", "beer-menu");
-loadSimpleMenu("wine.txt", "wine-menu");
-loadSimpleMenu("cocktails.txt", "cocktail-menu");
-loadSimpleMenu("snacks.txt", "snacks-menu");
+loadSimpleMenu("beer.txt","beer-menu");
+loadSimpleMenu("wine.txt","wine-menu");
+loadSimpleMenu("cocktails.txt","cocktail-menu");
+loadSimpleMenu("snacks.txt","snacks-menu");
 </script>
 
 </body>
 </html>
+
