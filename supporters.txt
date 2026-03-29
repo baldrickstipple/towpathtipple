@@ -1,11 +1,11 @@
-NAME: John Smith
+NAME: John Smithsss
 DESC: Local legend 🍺
 URL: https://instagram.com/johnsmith
 
-NAME: Canal Crew Co
+NAME: Canal Crew Co po
 DESC: Keeping the waterways alive
 URL: https://canalcrew.co.uk
 
-NAME: Sarah & Tom
+NAME: Sarah & Tom Victoria 
 DESC: First round’s on us!
 URL:
