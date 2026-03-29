@@ -2,23 +2,43 @@ NAME: Lorraine Biggs
 DESC: first to donate ❤️
 URL: 
 
-NAME: Norman 
+NAME: Norman Chantler
 DESC: biggest donation 🍺🍺
 URL: 
 
-NAME: Eleanor 
+NAME: Eleanor Land-Conway
 DESC: longest distance donation 🙌
 URL:
 
 NAME: Disco
-DESC: local legend 
-URL:
-
-NAME: 
 DESC: 
 URL:
 
-NAME: 
+NAME: Anonymous ?
+DESC: 
+URL:
+
+NAME: Cheryl Evans
+DESC: 
+URL:
+
+NAME: Max Walsh
+DESC: 
+URL:
+
+NAME: Marian Holding
+DESC: 
+URL:
+
+NAME: Claire Hewison-Billsborough
+DESC: 
+URL:
+
+NAME: Gary Edwards 
+DESC: 
+URL:
+
+NAME: Lucinda Barfoot-Saunt
 DESC: 
 URL:
 
