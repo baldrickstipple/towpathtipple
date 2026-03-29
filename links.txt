@@ -6,6 +6,14 @@ NAME: Roving Canal Traders Association
 DESC: Supporting independent canal traders across the network. Floating markets throughout the year
 URL: https://www.rcta.org.uk
 
-NAME: Batchworth Sea Scouts Arena
-DESC: A regular part of the Batchworth Boat Rally in May. Real Ale and Real Music 
-URL: https://www.batchworth.org/events/canal-festival/
+NAME: 
+DESC: 
+URL:
+
+NAME: 
+DESC: 
+URL:
+
+NAME: 
+DESC: 
+URL:
