@@ -1,11 +1,31 @@
-NAME: John Smithsss
-DESC: Local legend 🍺
-URL: https://instagram.com/johnsmith
+NAME: Lorraine Biggs
+DESC: first to donate ❤️
+URL: 
 
-NAME: Canal Crew Co po
-DESC: Keeping the waterways alive
-URL: https://canalcrew.co.uk
+NAME: Norman 
+DESC: biggest donation 🍺🍺
+URL: 
 
-NAME: Sarah & Tom Victoria 
-DESC: First round’s on us!
+NAME: Eleanor 
+DESC: longest distance donation 🙌
+URL:
+
+NAME: Disco
+DESC: local legend 
+URL:
+
+NAME: 
+DESC: 
+URL:
+
+NAME: 
+DESC: 
+URL:
+
+NAME: 
+DESC: 
+URL:
+
+NAME: 
+DESC: 
 URL:
