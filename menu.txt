@@ -1,13 +1,10 @@
 PRICE
-£5 per pint 
+from £5 per pint 
 
 CURRENT
-Pale Ale
-Old Peculiar 
-Medium Cider 
-Traditional Cider
+sourcing stock 
 
 COMING
 Cask Ales
-Guest Craft from Creative Juices
+Guest Craft
 Draught Cider
