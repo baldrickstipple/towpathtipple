@@ -139,5 +139,46 @@ footer {
   <p>Baldrick’s Towpath Tipple</p>
 </footer>
 
+<script>
+fetch("./supporters.txt")
+  .then(response => response.text())
+  .then(data => {
+    const lines = data.split("\n");
+
+    let output = "";
+    let name = "", desc = "", url = "";
+
+    lines.forEach(line => {
+      line = line.trim();
+
+      if (line.startsWith("NAME:")) {
+        name = line.replace("NAME:", "").trim();
+      } else if (line.startsWith("DESC:")) {
+        desc = line.replace("DESC:", "").trim();
+      } else if (line.startsWith("URL:")) {
+        url = line.replace("URL:", "").trim();
+
+        output += `
+          <div class="donor">
+            <h3>${name}</h3>
+            <p>${desc}</p>
+            ${
+              url
+                ? `<a href="${url}" target="_blank">Visit</a>`
+                : `<span style="opacity:0.6;">Supporter</span>`
+            }
+          </div>
+        `;
+      }
+    });
+
+    document.getElementById("supporters-container").innerHTML = output;
+  })
+  .catch(() => {
+    document.getElementById("supporters-container").innerHTML =
+      "<p>Supporters list coming soon...</p>";
+  });
+</script>
+
 </body>
 </html>
