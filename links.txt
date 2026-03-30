@@ -6,14 +6,3 @@ NAME: Roving Canal Traders Association
 DESC: Supporting independent canal traders across the network. Floating markets throughout the year
 URL: https://www.rcta.org.uk
 
-NAME: 
-DESC: 
-URL:
-
-NAME: 
-DESC: 
-URL:
-
-NAME: 
-DESC: 
-URL:
