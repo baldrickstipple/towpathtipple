@@ -53,13 +53,22 @@ section {
 /* BUTTON */
 .button {
   display:inline-block;
-  padding:14px 24px;
-  margin:20px 10px;
-  background:#f59e0b;
-  color:black;
+  padding:12px 22px;
+  margin:8px;
+  background:#8b1e1e;           /* deep canal red */
+  color:#f5f1e6;                /* cream text */
   text-decoration:none;
   border-radius:10px;
   font-weight:600;
+  border:2px solid #d4c7a1;     /* aged gold */
+  box-shadow: 3px 3px 0 #1f3a3a; /* dark green shadow */
+  transition: all 0.25s ease;
+}
+
+.button:hover {
+  background:#a52a2a;           /* slightly brighter red */
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 #1f3a3a;
 }
 
 /* DONOR CARDS */
